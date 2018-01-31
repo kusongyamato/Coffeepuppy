@@ -39,10 +39,11 @@ public class Cart extends AppCompatActivity{
         CartAdapter adapter = new CartAdapter(order.getOrders(),this);
         recyclerView.setAdapter(adapter);
 
-        for (int i = 0;i<order.getOrders().size();i++){
-           Log.e(Cart.class.getName(),"Price in order = "+order.getOrders().get(i).getFood_count()*order.getOrders().get(i).getFood_price()+"\n");
-           price += (order.getOrders().get(i).getFood_count()*order.getOrders().get(i).getFood_price());
+        for (int i = 0;i<order.getOrders().size();i++) {
+            Log.e(Cart.class.getName(), "Price in order = " + order.getOrders().get(i).getFood_count() * order.getOrders().get(i).getFood_price() + "\n");
+            price += (order.getOrders().get(i).getFood_count() * order.getOrders().get(i).getFood_price());
         }
+
         Log.e(Cart.class.getName(),"TotalPrice = "+price);
         TextView totalPrice =(TextView)findViewById(R.id.totalPrice);
         totalPrice.setText(String.valueOf(price)+" ฿");

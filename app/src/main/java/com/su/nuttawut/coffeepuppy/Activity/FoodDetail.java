@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.su.nuttawut.coffeepuppy.R;
 import com.su.nuttawut.coffeepuppy.RealmDB.realmOrder;
 import com.su.nuttawut.coffeepuppy.Data.CartDetail;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,8 @@ public class FoodDetail extends AppCompatActivity{
     String imageurl;
     String namee;
     double price;
+    int count=1;
+    TextView countitem;
 
 
     @Override
@@ -37,6 +43,8 @@ public class FoodDetail extends AppCompatActivity{
         setContentView(R.layout.food_detail);
         Realm.init(getApplicationContext());
 
+        countitem = (TextView)findViewById(R.id.countitemfood);
+        countitem.setText(String.valueOf(count));
 
         final Intent intent = getIntent();
         this.imageurl = intent.getStringExtra(EXTRA_URL);
@@ -54,6 +62,43 @@ public class FoodDetail extends AppCompatActivity{
         textViewprice.setText("ราคา "+ (int)price);
 //        textViewPrice.setText(String.valueOf(product.getPrice() + " ฿"));
 
+//        countitem = (TextView)findViewById(R.id.countitemfood);
+//        countitem.setText(String.valueOf(count));
+
+        ImageButton minus = (ImageButton) findViewById(R.id.minusBtn);
+        minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (count>1){
+                    count--;
+                    countitem = (TextView)findViewById(R.id.countitemfood);
+                    countitem.setText(String.valueOf(count));
+                } else{
+                    Toast.makeText(getApplicationContext(),"น้อยว่า 1 ไม่ได้",Toast.LENGTH_SHORT).show();
+                    count=1;
+                    countitem = (TextView)findViewById(R.id.countitemfood);
+                    countitem.setText(String.valueOf(count));
+                }
+            }
+        });
+
+        final ImageButton plus = (ImageButton) findViewById(R.id.plusBtn);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (count >= 1 && count < 10) {
+                    count++;
+                    countitem = (TextView)findViewById(R.id.countitemfood);
+                    countitem.setText(String.valueOf(count));
+                }else{
+                    Toast.makeText(getApplicationContext(),"จำนวนที่สั่งซื้อเกินกำหนด",Toast.LENGTH_SHORT).show();
+                    count = 10;
+                    countitem = (TextView)findViewById(R.id.countitemfood);
+                    countitem.setText(String.valueOf(count));
+                }
+            }
+        });
+
         Button cartBtn = (Button) findViewById(R.id.cartBTN);
         cartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,12 +111,12 @@ public class FoodDetail extends AppCompatActivity{
                 cartDetail.setOrder_id(Order.nextid());
                 cartDetail.setFood_name(namee);
                 cartDetail.setFood_price(price);
-                cartDetail.setFood_count(3);
+                cartDetail.setFood_count(count);
                 detailList.add(cartDetail);
 
                 for (CartDetail detail : detailList){
                     Order.addOrders(detail);
-                    Log.e(FoodDetail.class.getName(),detail.getOrder_id()+"\n"+detail.getFood_id()+"\n"+detail.getFood_name());
+                    Log.e(FoodDetail.class.getName(),detail.getOrder_id()+"\n"+detail.getFood_count()+"\n"+detail.getFood_name());
 
                 }
 //                Toast.makeText(getBaseContext(),"Add "+namee +" "+price +"฿",Toast.LENGTH_LONG).show();
@@ -83,7 +128,6 @@ public class FoodDetail extends AppCompatActivity{
 
 
     }
-
 
 
 }

@@ -4,7 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
     <LinearLayout
+        android:id="@+id/boxfood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -64,13 +70,18 @@
 
     </LinearLayout>
 
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/boxfood"
         android:padding="10dp"
         android:text="ส่วนประกอบหลัก"
         android:textSize="18dp"
         />
+
+
 
 
     <!--<android.support.v7.widget.RecyclerView-->
@@ -79,16 +90,63 @@
         <!--android:layout_height="match_parent"-->
         <!--/>-->
 
+        <RelativeLayout
+            android:id="@+id/boxItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
 
+            >
 
-    <Button
-        android:id="@+id/cartBTN"
-        android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/numItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/minusBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ใส่ตะกร้า"
-        android:textSize="20dp"
-
+        android:src="@drawable/ic_chevron_left_black_24dp"
         />
+
+        <TextView
+            android:id="@+id/countitemfood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="0"
+            android:textSize="25dp"/>
+
+        <ImageButton
+            android:id="@+id/plusBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_chevron_right_black_24dp"
+            />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/cartBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ใส่ตะกร้า"
+                android:textSize="20dp"
+                android:layout_below="@id/numItem"
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>
