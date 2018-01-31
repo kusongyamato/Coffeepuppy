@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.su.nuttawut.coffeepuppy.Adapter.CartAdapter;
@@ -19,6 +21,7 @@ public class Cart extends AppCompatActivity{
 
     RecyclerView recyclerView;
     realmOrder realmOrder;
+    int price;
 
 
     @Override
@@ -36,7 +39,13 @@ public class Cart extends AppCompatActivity{
         CartAdapter adapter = new CartAdapter(order.getOrders(),this);
         recyclerView.setAdapter(adapter);
 
-
+        for (int i = 0;i<order.getOrders().size();i++){
+           Log.e(Cart.class.getName(),"Price in order = "+order.getOrders().get(i).getFood_count()*order.getOrders().get(i).getFood_price()+"\n");
+           price += (order.getOrders().get(i).getFood_count()*order.getOrders().get(i).getFood_price());
+        }
+        Log.e(Cart.class.getName(),"TotalPrice = "+price);
+        TextView totalPrice =(TextView)findViewById(R.id.totalPrice);
+        totalPrice.setText(String.valueOf(price)+" ฿");
 //        recyclerView = findViewById(R.id.recyclerView);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //
@@ -51,7 +60,7 @@ public class Cart extends AppCompatActivity{
                 realmOrder = new realmOrder();
                 realmOrder.clearAll();
                 confirm();
-                Toast.makeText(getApplicationContext(),"Hello Test",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"ยืนยันการสั่ง",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -61,6 +70,8 @@ public class Cart extends AppCompatActivity{
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+
 
 
 

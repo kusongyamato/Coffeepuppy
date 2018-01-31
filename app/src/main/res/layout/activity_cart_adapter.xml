@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:padding="5dp">
+        android:paddingTop="5dp">
 
     <TextView
         android:id="@+id/f_food_name"
@@ -40,6 +40,7 @@
         android:textSize="18dp"
         android:text="230"
         />
+
 
     </RelativeLayout>
 </LinearLayout>

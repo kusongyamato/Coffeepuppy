@@ -43,6 +43,9 @@ public class realmOrder {
     public RealmResults<CartDetail> getOrders(){
         return realm.where(CartDetail.class).findAll();
     }
+
+//    public RealmResults<CartDetail> getPrice(int orderid) {return  realm.where(CartDetail.class).equalTo("order_id", orderid).findAll();}
+
     public void addOrders(CartDetail cartDetail){
         realm.beginTransaction();
         realm.insert(cartDetail);

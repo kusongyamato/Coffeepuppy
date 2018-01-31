@@ -66,12 +66,12 @@ public class FoodDetail extends AppCompatActivity{
                 cartDetail.setOrder_id(Order.nextid());
                 cartDetail.setFood_name(namee);
                 cartDetail.setFood_price(price);
-                cartDetail.setFood_count(1);
+                cartDetail.setFood_count(3);
                 detailList.add(cartDetail);
 
                 for (CartDetail detail : detailList){
                     Order.addOrders(detail);
-                    Log.e(FoodDetail.class.getName(),detail.getOrder_id()+"/n"+detail.getFood_id()+"/n"+detail.getFood_name());
+                    Log.e(FoodDetail.class.getName(),detail.getOrder_id()+"\n"+detail.getFood_id()+"\n"+detail.getFood_name());
 
                 }
 //                Toast.makeText(getBaseContext(),"Add "+namee +" "+price +"฿",Toast.LENGTH_LONG).show();
