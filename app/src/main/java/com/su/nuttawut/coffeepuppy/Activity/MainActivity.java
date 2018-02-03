@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ProductAdapter.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener{
 
-    private static final String URL_PRODUCT = "http://192.168.43.165/register_login/get_products.php";
+    private static final String URL_PRODUCT = "http://10.0.0.26/register_login/get_products.php";
     private DrawerLayout bDrawerLayout;
     private ActionBarDrawerToggle bToggle;
 
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements ProductAdapter.On
 
 //        ส่วนของการเรียกข้อมูลในดาต้าเบสมาโชว์
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
 
         productList = new ArrayList<>();
 
