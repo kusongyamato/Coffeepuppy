@@ -37,7 +37,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         CartDetail detail = cartDetails.get(position);
 
         holder.txtFood.setText(detail.getFood_name());
-        holder.txtPrice.setText(String.valueOf(detail.getFood_price()));
+        holder.txtPrice.setText(String.valueOf((int)detail.getFood_price()*detail.getFood_count()));
         holder.txtCount.setText(String.valueOf(detail.getFood_count()));
     }
 

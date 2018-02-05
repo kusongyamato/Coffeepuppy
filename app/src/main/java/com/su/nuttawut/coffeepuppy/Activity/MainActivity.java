@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ProductAdapter.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener{
 
-    private static final String URL_PRODUCT = "http://10.0.0.26/register_login/get_products.php";
+    private static final String URL_PRODUCT = "http://192.168.1.12/register_login/get_products.php";
     private DrawerLayout bDrawerLayout;
     private ActionBarDrawerToggle bToggle;
 

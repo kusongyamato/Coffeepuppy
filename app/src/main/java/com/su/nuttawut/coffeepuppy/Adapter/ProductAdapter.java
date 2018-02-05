@@ -60,7 +60,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 .into(holder.imageView);
 
         holder.textViewProductName.setText(product.getProductName());
-        holder.textViewPrice.setText(String.valueOf(product.getPrice() + " ฿"));
+        holder.textViewPrice.setText(String.valueOf((int)product.getPrice() + " ฿"));
 
 
 ////        ส่วนของโค้ดใหม่

@@ -67,9 +67,37 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/delivery_pay"
+        app:layout_constraintTop_toBottomOf="@id/Lin3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="ค่าจัดส่ง"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/Price_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:layout_marginRight="40dp"
+            android:text="0"/>
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:id="@+id/Lin4"
-        app:layout_constraintTop_toBottomOf="@id/Lin3"
+        app:layout_constraintTop_toBottomOf="@id/delivery_pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -133,9 +161,34 @@
 
     </LinearLayout>
 
+
 <LinearLayout
     android:id="@+id/Lin7"
     app:layout_constraintTop_toBottomOf="@id/Lin6"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/pickDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginRight="24dp"
+        android:hint="DD / MM / YYYY"/>
+
+    <EditText
+        android:id="@+id/pickTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="HH:MM"/>
+</LinearLayout>
+
+
+<LinearLayout
+    android:id="@+id/Lin8"
+    app:layout_constraintTop_toBottomOf="@id/Lin7"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <Button
