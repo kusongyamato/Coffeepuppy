@@ -1,6 +1,8 @@
 package com.su.nuttawut.coffeepuppy.Activity;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,7 +35,7 @@ public class FoodDetail extends AppCompatActivity{
     String imageurl;
     String namee;
     double price;
-    int count=1;
+    int count=1,foodid;
     TextView countitem;
 
 
@@ -50,7 +52,8 @@ public class FoodDetail extends AppCompatActivity{
         this.imageurl = intent.getStringExtra(EXTRA_URL);
         this.namee = intent.getStringExtra(EXTRA_name);
         this.price = intent.getDoubleExtra(EXTRA_price,0.00);
-//        Toast.makeText(this,"Price : "+price, Toast.LENGTH_LONG).show();
+        this.foodid= intent.getIntExtra("foodid",0);
+        Toast.makeText(this,"Price : "+foodid, Toast.LENGTH_LONG).show();
 
 
         ImageView imageView =(ImageView) findViewById(R.id.f_food_image);
@@ -101,14 +104,16 @@ public class FoodDetail extends AppCompatActivity{
 
         Button cartBtn = (Button) findViewById(R.id.cartBTN);
         cartBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View view) {
 //                Toast.makeText(getBaseContext(),"KKKKKKKK",Toast.LENGTH_LONG).show();
                 Order = new realmOrder();
                 List<CartDetail> detailList = new ArrayList<>();
-                Intent send = new Intent(FoodDetail.this,Cart.class);
+                Intent send = new Intent(FoodDetail.this,MainActivity.class);
                 CartDetail cartDetail = new CartDetail();
                 cartDetail.setOrder_id(Order.nextid());
+                cartDetail.setFood_id(foodid);
                 cartDetail.setFood_name(namee);
                 cartDetail.setFood_price(price);
                 cartDetail.setFood_count(count);
@@ -120,12 +125,11 @@ public class FoodDetail extends AppCompatActivity{
 
                 }
 //                Toast.makeText(getBaseContext(),"Add "+namee +" "+price +"฿",Toast.LENGTH_LONG).show();
-//                finish();
+
                 startActivity(send);
+//                finish();
             }
         });
-
-
 
     }
 

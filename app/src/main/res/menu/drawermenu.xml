@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
     <item
         android:id="@+id/login"
         android:icon="@drawable/ic_lock_open_black_24dp"
         android:title="เข้าสู่ระบบ / ลงทะเบียน" />
+    <item
+        android:id="@+id/orderstatus"
+        android:icon="@drawable/ic_chevron_right_black_24dp"
+        android:title="สถานะออเดอร์" />
     <item
         android:id="@+id/condition"
         android:icon="@drawable/ic_priority_high_black_24dp"
@@ -13,7 +19,7 @@
         android:icon="@drawable/ic_attachment_black_24dp"
         android:title="ข่าวสาร" />
     <item
-        android:id="@+id/driver"
-        android:icon="@drawable/ic_assignment_ind_black_24dp"
-        android:title="พนักงาน" />
+        android:id="@+id/logout"
+        android:title="Logout" />
+
 </menu>

@@ -6,16 +6,13 @@
     android:orientation="horizontal">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/itemFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:background="#ffffff"
-        android:padding="5dp"
-        android:layout_margin="5dp"
-        android:orientation="vertical"
-        >
+        android:padding="5dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -29,11 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
             android:layout_toLeftOf="@id/txtPrice"
             android:layout_toRightOf="@id/imageView"
             android:text="กระเพรา"
-            android:textSize="18dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="#000" />
 
@@ -45,11 +41,11 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginLeft="5dp"
-            android:text="120 ฿"
+            android:text="20 ฿"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="#000" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>

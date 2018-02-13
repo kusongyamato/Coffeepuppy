@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:background="#EBE6C0"
     tools:context="com.su.nuttawut.coffeepuppy.Activity.MainActivity">
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto">-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,6 +48,47 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="อาหารปรุงสุก" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#000000"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btf1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="ดูแลเหงือกและฟัน" />
+
+                <TextView
+                    android:id="@+id/btk2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="บำรุงขน" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="บำรุงกระดูก" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="ใช้พลังงานเยอะ" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="บำรุงการขับถ่าย" />
 
             </LinearLayout>
 
@@ -103,7 +145,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -119,8 +161,9 @@
         android:layout_height="match_parent"
         app:menu="@menu/drawermenu"
         app:headerLayout="@layout/header_menu">
-
     </android.support.design.widget.NavigationView>
+
+
 
 
 </android.support.v4.widget.DrawerLayout>

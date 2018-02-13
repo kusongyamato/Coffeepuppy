@@ -10,18 +10,21 @@
 
     <EditText
         android:layout_width="280dp"
+        android:id="@+id/emailedt"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:hint="อีเมล"/>
 
     <EditText
         android:layout_width="280dp"
+        android:id="@+id/passedt"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="รหัสผ่าน"/>
 
     <Button
         android:layout_width="280dp"
+        android:id="@+id/loggedin"
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:text="เข้าสู่ระบบ"/>
